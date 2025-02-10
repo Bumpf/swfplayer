@@ -18,7 +18,7 @@ function handleFile(e){
         const player = ruffle.createPlayer();
         const container = document.getElementById("container");
         container.appendChild(player);
-        player.load("swf");
+        player.load(reader.readAsDataURL(swf));
     });
 
     }
