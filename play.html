@@ -1,16 +1,20 @@
 <h1>Play a flash game:</h1>
 
-<input type=file id="fileInput" />
+<form method="post" enctype="multipart/form-data">
+  <label for="file">File</label>
+  <input id="fileInput" name="file" type="file" />
+  <button>Upload</button>
+</form>
 
 <script>
-    document.querySelector('#fileInput').addEventListener('change', handleFile,false)
+    document.querySelector('#fileInput').addEventListener('change', handleFile,false);
 
 function handleFile(e){
     var reader = new FileReader;
-    var file   = e.target.files[0]
+    var file   = e.target.files[0];
 
     reader.onload = function(e){
-        var swf = e.target.result
+        var swf = e.target.result;
 
         window.RufflePlayer = window.RufflePlayer || {};
     window.addEventListener("load", (event) => {
