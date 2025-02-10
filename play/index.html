@@ -1,9 +1,30 @@
-<h1>Play Flash games</h1>
+<h1>Play a flash game:</h1>
 
-<a href="/play/papas-pizzeria/"><stong>Papa's Pizzeria</strong></a>
-<img src="https://swf-games-vault.github.io/files/images/thumbnails/papas-pizzeria.jpg" alt="Papa's Pizzeria thumbnail">
-<br>
-<p>Help Roy top, bake, and serve pizzas while Papa Louie is gone!</p>
-<br>
-<br>
-<br>
+<input type=file id="fileInput" />
+
+<script>
+    document.querySelector('#fileInput').addEventListener('change', handleFile,false)
+
+function handleFile(e){
+    var reader = new FileReader;
+    var file   = e.target.files[0]
+
+    reader.onload = function(e){
+        var swf = e.target.result
+
+        window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("container");
+        container.appendChild(player);
+        player.load("swf");
+    });
+
+    }
+
+    reader.readAsText(file);
+    
+    
+</script>
+<script src="/ruffle/ruffle.js"></script>
