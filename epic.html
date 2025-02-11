@@ -1,0 +1,13 @@
+<h1>Play a flash game:</h1>
+
+<script>
+ window.RufflePlayer = window.RufflePlayer || {};
+    window.addEventListener("load", (event) => {
+        const ruffle = window.RufflePlayer.newest();
+        const player = ruffle.createPlayer();
+        const container = document.getElementById("container");
+        container.appendChild(player);
+        player.load("https://dagobah.net/flash/epic_combo.swf");
+    
+</script>
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
